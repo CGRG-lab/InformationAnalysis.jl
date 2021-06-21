@@ -9,7 +9,7 @@ rtol = 0.03
 theoretical_fim(σ) = 1 / σ^2
 theoretical_se(σ) = 1 / 2 * log(2 * π * ℯ * σ^2)
 
-@testset verbose = true "All Information Metrics(σ=$σ)" for σ in range(0.1; stop=5.9, step=0.1)
+@testset "All Information Metrics(σ=$σ)" for σ in range(0.1; stop=5.9, step=0.1)
     data = σ * randn(Float64, 100000) .+ μ
 
     @testset "FIM (σ=$σ)" begin
