@@ -1,6 +1,7 @@
 using KernelDensity
 using Interpolations
 using QuadGK
+using Polyester
 
 
 """
@@ -45,7 +46,7 @@ function shannonentropy(data::AbstractArray{Float64}, l::Int64)
     num_fi = num_data - l + 1
     se = Array{Float64,1}(undef, num_fi)
     index = Array(1:num_fi) .+ (l - 1)
-    Threads.@threads for i in 1:num_fi
+    @batch per = core for i in 1:num_fi
         # method 1 (BSpline interpolation may give negative value (overshoot))
         # ik = InterpKDE(kde(data[i:i + l - 1]))
         # p(s) = clamp(pdf(ik, s), eps(0.0), Inf64)
