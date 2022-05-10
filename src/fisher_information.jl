@@ -35,7 +35,7 @@ function fisherinformation(data::AbstractArray{Float64})
 end
 
 """
-    shannonentropy(data::AbstractArray{Float64}, batch_size::Integer)
+    fisherinformation(data::AbstractArray{Float64}, batch_size::Integer)
 
 Sequentially use small batch data to calculate "Fisher Information" (∫ ds/p(s) [dp(s)/ds]²)
 """
